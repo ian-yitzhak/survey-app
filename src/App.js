@@ -1,25 +1,40 @@
-import logo from './logo.svg';
+import { Routes, Route} from "react-router-dom"
 import './App.css';
+import Response from './components/Response'
+import Create from './components/Create'
+import Home from './components/Home'
+import Header from './components/Header'
+import Container from '@mui/material/Container';
+import store from './store/store'
+import {Provider} from 'react-redux';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+<div className="App">
+<Container container justify = "center" fixed>
+     
+<Header />
+
+ <br />
+ <Provider store={store}>
+<Routes>
+     
+<Route path="/" element={ <Home/> }  />
+<Route path="new" element={ <Create/> } />
+<Route path="response" element={ <Response/> } />      
+   
+    
+</Routes>
+ </Provider>
+</Container>
+</div>    
+    
+
   );
 }
 
 export default App;
+
+
+
