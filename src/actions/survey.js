@@ -10,7 +10,7 @@ import {
 const listSurvey = () => async (dispatch) => {
   try {
     dispatch({ type: SURVEY_LIST_REQUEST });
-    const { data } = await axios.get("http://localhost:8000/survey");
+    const { data } = await axios.get("http://sur-ap-1.herokuapp.com/survey");
     dispatch({ type: SURVEY_LIST_SUCCESS, payload: data });
   } catch (error) {
     console.log(error);
@@ -35,7 +35,7 @@ const addSurvey =
     //   userSignin: { userInfo },
     // } = getState();
     try {
-      const { data } = await axios.post("https://sur-ap-1.herokuapp.com/survey", {
+      const { data } = await axios.post("http://sur-ap-1.herokuapp.com/users", {
         name,
         email,
         gender,
